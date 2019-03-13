@@ -252,7 +252,7 @@ function checkCode(){
 	if (code == 6){
 		console.log("yuh");
 		document.getElementById('door').play();
-		alert("You have gained accessed to his computer")
+		alert("You Have Gained Access To The Scientist's Lab and Computer!")
 		window.location.replace("http://raphaelvigil.github.io/website3/");
 	} else {
 		alert("The Code Is Incorrect!");
