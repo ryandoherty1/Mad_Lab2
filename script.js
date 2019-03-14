@@ -119,6 +119,7 @@ function sendAlert() {
 	alert("You clicked the Code Lock!")
 }
 function removeImg(elem){
+	//removes numbers on my main-view grid and places them in the "inventory" bar at the bottom of the screen
 	if (elem.src.match("images/1.png")){
 		elem.src="images/blank.png";
 		one = 1;
@@ -147,9 +148,13 @@ function removeImg(elem){
 	}
 }
 
+//this function checks if you have found all the numbers,  and then allows you to use the codelock
 function useCodelock(){
+	//checks if each numbers variable is equal to one (meaning the number has been found)
 	if (one == 1 && nine == 1 && five == 1 & seven == 1 && two == 1 && ninetwo == 1){
+		//changes my main-view grid div's background to gray.png
 		document.getElementById("main-view").style.backgroundImage="url('images/gray.png')";
+		//find the grid id's that have functions attached, and sets them to null
 		document.getElementById("1").onclick = null;
 		document.getElementById("6").onclick = null;
 		document.getElementById("9").onclick = null;
@@ -157,6 +162,7 @@ function useCodelock(){
 		document.getElementById("14").onclick = null;
 		document.getElementById("21").onclick = null;
 		document.getElementById("34").onclick = null;
+		//sets up a 5*3 grid for a codelock and adds a new function assigned to the 5*3 codelock (this function adds and removes classes so that I can create the code lock look)
 		document.getElementById("1").setAttribute("onClick", "enterCodelock(this);");
 		document.getElementById("2").setAttribute("onClick", "enterCodelock(this);");
 		document.getElementById("3").setAttribute("onClick", "enterCodelock(this);");
@@ -220,11 +226,13 @@ function useCodelock(){
 		document.getElementById("27").classList.add("border");
 		document.getElementById("27").classList.add("button");
 	}else{
+		//alerts you that you have not found the code
 		alert("You Must Find The Code To Use The Lock.");
 	}
 }
 
 function enterCodelock(elem){
+	//checks for different variables for the code (allows for the code to be entered in a specific order and not just any random order)
 	document.getElementById('bleep').play();
 	if (code == 0 && elem.src.match("1.png")){
 		code = 1;
@@ -249,6 +257,7 @@ function enterCodelock(elem){
 }
 
 function checkCode(){
+	//checks if the code variable is set to 6, making code true, and then transports you to the next website
 	if (code == 6){
 		console.log("yuh");
 		document.getElementById('door').play();
